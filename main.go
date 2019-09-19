@@ -25,14 +25,16 @@ func main() {
 	}
 	fmt.Println(reflect.TypeOf(tmplContent))
 	fmt.Println(tmplContent)
-	// here is the actual rendering takes place.
+	// here is the actual rendering takes place, and sends the rendere content to the output
 	tmplContent.Execute(os.Stdout, devEnv)
 
 	fmt.Println("")
 	fmt.Println("")
 
-	//pwd, _ := os.Getwd()
-
+	/*
+	  Now we're going to get a template content from a temlate file,
+	  render it, then output it into another file.
+	*/
 	tmplContentFolder, err := template.ParseFiles("./dummy-template.yml")
 	if err != nil {
 		log.Fatal(err)
@@ -42,7 +44,10 @@ func main() {
 	fmt.Println(tmplContentFolder)
 	fmt.Println(&tmplContentFolder)
 
+	renderedfile, err := os.Create("./rendered-dummy-template.yml")
+
 	// here is the actual rendering takes place.
-	tmplContentFolder.Execute(os.Stdout, devEnv)
+	fmt.Println(reflect.TypeOf(renderedfile))
+	tmplContentFolder.Execute(renderedfile, devEnv)
 
 }
