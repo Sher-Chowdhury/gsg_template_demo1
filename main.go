@@ -44,7 +44,8 @@ func main() {
 	fmt.Println(tmplContentFolder)
 	fmt.Println(&tmplContentFolder)
 
-	renderedfile, err := os.Create("./rendered-dummy-template.yml")
+	os.Mkdir("./rendered-content", 0755)
+	renderedfile, err := os.Create("./rendered-content/rendered-dummy-template.yml")
 
 	// here is the actual rendering takes place.
 	fmt.Println(reflect.TypeOf(renderedfile))
