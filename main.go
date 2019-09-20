@@ -41,6 +41,9 @@ func main() {
 		fmt.Println(f.Name())
 	}
 
+	// https://yourbasic.org/golang/list-files-in-directory/ - this is a common approach, it uses 'functions literal syntax'
+	// https://xojoc.pw/blog/golang-file-tree-traversal.html
+
 	/*
 	  Now we're going to get a template content from a temlate file,
 	  render it, then output it into another file.
