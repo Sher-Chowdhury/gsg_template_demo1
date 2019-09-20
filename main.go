@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"reflect"
@@ -30,6 +31,15 @@ func main() {
 
 	fmt.Println("")
 	fmt.Println("")
+
+	// Get a list of all files in the "SourceTemplates" folder
+	files, err := ioutil.ReadDir("SourceTemplates/anotherfolder")
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, f := range files {
+		fmt.Println(f.Name())
+	}
 
 	/*
 	  Now we're going to get a template content from a temlate file,
