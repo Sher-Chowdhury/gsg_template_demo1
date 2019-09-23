@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"reflect"
@@ -29,17 +28,16 @@ func main() {
 	// here is the actual rendering takes place, and sends the rendere content to the output
 	tmplContent.Execute(os.Stdout, devEnv)
 
-	fmt.Println("")
-	fmt.Println("")
-
-	// Get a list of all files in the "SourceTemplates" folder
-	files, err := ioutil.ReadDir("SourceTemplates/anotherfolder")
-	if err != nil {
-		log.Fatal(err)
-	}
-	for _, f := range files {
-		fmt.Println(f.Name())
-	}
+	// Get a list of all files in the "SourceTemplates" folder, top level only
+	/*
+		files, err := ioutil.ReadDir("SourceTemplates/anotherfolder")
+		if err != nil {
+			log.Fatal(err)
+		}
+		for _, f := range files {
+			fmt.Println(f.Name())
+		}
+	*/
 
 	// https://yourbasic.org/golang/list-files-in-directory/ - this is a common approach, it uses 'functions literal syntax'
 	// https://xojoc.pw/blog/golang-file-tree-traversal.html
